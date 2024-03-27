@@ -349,6 +349,10 @@ top_unique_sorted
 
 ```{r}
 
+cran %>%
+  select(ip_id, country, package, size) %>%
+  print()
+
 
 
 ```

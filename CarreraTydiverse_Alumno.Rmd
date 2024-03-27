@@ -385,6 +385,12 @@ cran %>%
 ```{r}
 
 
+cran %>%
+  mutate(size_mb = size / (1024^2)) %>%
+  filter(size_mb <= 0.5) %>%
+  arrange(desc(size_mb)) %>%
+  print()
+
 
 
 ```

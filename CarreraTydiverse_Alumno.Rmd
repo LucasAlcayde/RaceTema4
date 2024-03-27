@@ -326,6 +326,17 @@ top_counts_sorted
 
 ```{r}
 
+top_unique_sorted <- cran %>%
+  group_by(package) %>%
+  summarise(unique = n_distinct(ip_id)) %>%
+  filter(unique > quantile(unique, probs = 0.99)) %>%
+  group_by(package) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count)) %>%
+  pull(package)
+
+# Muestra los paquetes top descargas únicas ordenados
+top_unique_sorted
 
 
 
